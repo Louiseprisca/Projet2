@@ -1,6 +1,2 @@
-Thanks for downloading this template!
-
-Template Name: Moderna
-Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+This project is protected by Bassagna Ombessa Boris (Bob Ligth Guiogna)
+If you want to work with it just join the authors !
