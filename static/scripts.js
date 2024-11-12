@@ -1,4 +1,4 @@
-const destinations = {
+const destinations = { 
     yaounde: {
         title: "Yaoundé",
         description: "La capitale politique",
