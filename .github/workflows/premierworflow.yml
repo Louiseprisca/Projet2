@@ -1,0 +1,44 @@
+name: Code_Correction
+
+on:
+  push:
+    branches:
+      - main  # Changez ceci selon votre branche principale
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Python (ou un autre environnement selon le langage)
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'  # Ajuster selon votre version
+
+      - name: Install dependencies
+        run: |
+          pip install flake8  # Installer un outil d'analyse statique
+          # Ajoutez d'autres outils selon le langage, par exemple, ESLint pour JavaScript
+
+      - name: Run code analysis
+        run: |
+          flake8 .  # Lancer l'analyse de code
+          # Pour d'autres langages, utilisez les commandes appropriées
+
+      - name: Run AI correction (exemple avec un script local ou un outil d'IA)
+        run: |
+          python corrector_script.py  # Script qui s'occupe de corriger le code
+          # Remplacez par votre méthode d'appel à l'IA, par exemple, une API ou un script
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Code corrections applied by AI" || echo "No changes to commit"
+          git push origin main  # Assurez-vous que c'est la bonne branche
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
