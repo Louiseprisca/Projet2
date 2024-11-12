@@ -3,7 +3,7 @@ name: Code_Correction
 on:
   push:
     branches:
-      - main  # Changez ceci selon votre branche principale
+      - dev  # Changez ceci selon votre branche principale
 
 jobs:
   lint:
