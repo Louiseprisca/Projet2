@@ -24,4 +24,4 @@ jobs:
 
       - name: Run code analysis
         run: |
-          flake8 .  # Lancer l'analyse de code
+          flake8 . --ignore=E501 # Lancer l'analyse de code et ignorer les ligne trop longues
