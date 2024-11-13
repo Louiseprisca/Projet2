@@ -1,5 +1,2 @@
-Projet développé par BOb Travel
-
-Contact : 699007755
-email :bobtravel@gmail.com
-ville : Yaoundé
+This project is protected by Bassagna Ombessa Boris (Bob Ligth Guiogna)
+If you want to work with it just join the authors !

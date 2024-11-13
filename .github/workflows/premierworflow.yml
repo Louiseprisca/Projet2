@@ -1,0 +1,34 @@
+name: Code_Correction
+
+on:
+  push:
+    branches:
+      - dev  
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'  
+
+      - name: Install dependencies
+        run: |
+          pip install flake8  # Installer un outil d'analyse statique
+
+      - name: Run code analysis
+        run: |
+          flake8 .  # Lancer l'analyse de code
+
+      - name: Run AI correction (exemple avec un script local ou un outil d'IA)
+        run: |
+          python corrector_script.py  # Script qui s'occupe de corriger le code
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

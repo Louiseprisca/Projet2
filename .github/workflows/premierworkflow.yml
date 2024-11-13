@@ -1,0 +1,27 @@
+name: Code_Correction
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install flake8  # Installer un outil d'analyse statique
+
+      - name: Run code analysis
+        run: |
+          flake8 . --ignore=E501 # Lancer l'analyse de code et ignorer les ligne trop longues
