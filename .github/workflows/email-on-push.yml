@@ -16,10 +16,10 @@ jobs:
       - name: Send email notification
         env:
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-          RECIPIENT_EMAIL: "user@example.com"  # Remplacez par l'email de l'utilisateur
-          SENDER_EMAIL: "your-email@example.com"  # Remplacez par l'email de l'expéditeur
+          RECIPIENT_EMAIL: "destinyhub237@gmail.com"
+          SENDER_EMAIL: "destinyhub237@gmail.com"
         run: |
-          echo "Sending email notification..."
+          echo "Envoi de la notification par email..."
           curl --request POST \
             --url https://api.sendgrid.com/v3/mail/send \
             --header "Authorization: Bearer $SENDGRID_API_KEY" \
@@ -27,11 +27,18 @@ jobs:
             --data '{
               "personalizations": [{
                 "to": [{"email": "'$RECIPIENT_EMAIL'"}],
-                "subject": "Nouveau Push sur le dépôt GitHub !"
+                "subject": "Nouveau Push GitHub de '$COMMIT_AUTHOR'",
+                "dynamic_template_data": {
+                  "commit_message": "'$COMMIT_MESSAGE'"
+                }
               }],
               "from": {"email": "'$SENDER_EMAIL'"},
               "content": [{
                 "type": "text/plain",
-                "value": "Un nouveau push a été effectué sur le dépôt. Veuillez vérifier les dernières modifications."
+                "value": "Un nouveau push a été effectué avec le message : '$COMMIT_MESSAGE'"
               }]
             }'
+
+      - name: Vérification de l’envoi
+        if: ${{ failure() }}
+        run: echo "Échec de l’envoi de l’email"
