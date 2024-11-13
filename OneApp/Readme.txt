@@ -1,6 +1,5 @@
-Thanks for downloading this template!
+Projet développé par BOb Travel
 
-Template Name: Moderna
-Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+Contact : 699007755
+email :bobtravel@gmail.com
+ville : Yaoundé
