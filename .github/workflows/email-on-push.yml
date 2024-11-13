@@ -1,0 +1,37 @@
+name: Email_on_Push
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Send email notification
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          RECIPIENT_EMAIL: "user@example.com"  # Remplacez par l'email de l'utilisateur
+          SENDER_EMAIL: "your-email@example.com"  # Remplacez par l'email de l'expéditeur
+        run: |
+          echo "Sending email notification..."
+          curl --request POST \
+            --url https://api.sendgrid.com/v3/mail/send \
+            --header "Authorization: Bearer $SENDGRID_API_KEY" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "personalizations": [{
+                "to": [{"email": "'$RECIPIENT_EMAIL'"}],
+                "subject": "Nouveau Push sur le dépôt GitHub !"
+              }],
+              "from": {"email": "'$SENDER_EMAIL'"},
+              "content": [{
+                "type": "text/plain",
+                "value": "Un nouveau push a été effectué sur le dépôt. Veuillez vérifier les dernières modifications."
+              }]
+            }'
