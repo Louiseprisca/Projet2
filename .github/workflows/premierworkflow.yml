@@ -23,6 +23,9 @@ jobs:
           pip install flake8  # Installer un outil d'analyse statique
           # Ajoutez d'autres outils selon le langage, par exemple, ESLint pour JavaScript
 
+      - name: Run Super-Linter
+        uses: github/suoper-linter@v2
+        
       - name: Run code analysis
         run: |
           flake8 .  # Lancer l'analyse de code
