@@ -1,2 +1,3 @@
-This project is protected by Bassagna Ombessa Boris (Bob Ligth Guiogna)
-If you want to work with it just join the authors !
+Ce projet est la propriété de BobTravel
+Contact : 699007755
+Ville : Yaounde
