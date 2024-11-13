@@ -23,7 +23,7 @@
 
 .close
     {
-        color: #aaa;
+        color: #7a4f4f;
         float: right;
         font-size: 20px;
         font-weight: bold;
@@ -60,4 +60,3 @@
     color: white;
     background-color: #2c3e50;
 }
-
