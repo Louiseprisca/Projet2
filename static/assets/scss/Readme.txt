@@ -1,2 +1,2 @@
-The .scss (Sass) files are only available in the pro version.
-You can buy it from: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+This project is protected by Bassagna Ombessa Boris (Bob Ligth Guiogna)
+If you want to work with it just join the authors !
